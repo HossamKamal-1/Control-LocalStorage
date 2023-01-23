@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Tahoma, Arial;
+}
+.container {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    margin: 40px auto;
+    width: 900px;
+  }
+}
+.app {
+}
+.app .container {
+  padding: 20px;
+  background-color: #eee;
+}
+.app .container > input {
+  border: none;
+  padding: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 2px;
+}
+.app .container > input:focus {
+  outline: none;
+}
+.app .container .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+@media (max-width: 767px) {
+  .app .container .buttons {
+    flex-wrap: wrap;
+  }
+}
+.app .container .buttons > span {
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+@media (max-width: 767px) {
+  .app .container .buttons > span {
+    width: 150px;
+    text-align: center;
+  }
+}
+.app .container .buttons .btn-check {
+  background-color: #28a745;
+}
+.app .container .buttons .btn-check:hover {
+  background-color: #28a746e8;
+}
+.app .container .buttons .btn-add {
+  background-color: #ffc107;
+  color: black;
+}
+.app .container .buttons .btn-add:hover {
+  background-color: #ffc107c8;
+}
+.app .container .buttons .btn-delete {
+  background-color: #dc3545;
+}
+.app .container .buttons .btn-delete:hover {
+  background-color: #dc3546d4;
+}
+.app .container .buttons .btn-show {
+  background-color: #009688;
+}
+.app .container .buttons .btn-show:hover {
+  background-color: #009687d8;
+}
+
+.app .container .result {
+  border-radius: 2px;
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 15px;
+  border: 2px dashed #eee;
+}
+.app .container .result span span {
+  font-weight: bold;
+  color: #009688;
+  text-align: center;
+}
+.app .container .result span .entry {
+  background-color: #607d8b;
+  color: white;
+  padding: 10px;
+}
+.app .container .result span .entry:not(:last-child) {
+  margin-bottom: 8px;
+}
