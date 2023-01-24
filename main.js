@@ -8,7 +8,7 @@ let theInput = document.getElementById("the-input"),
     addLocalStorageItem,
     deleteLocalStorageItem,
   ];
-
+let specialCharactersRegex = /([^\w\s]|\_)/i;
 Array.from(localStorageActionBtns).forEach((btn, index) => {
   if (localStorageActionBtns.length - 1 !== index) {
     btn.onclick = () => clickHandler(btnOperationHandlers[index]);
@@ -18,7 +18,10 @@ Array.from(localStorageActionBtns).forEach((btn, index) => {
 });
 
 function clickHandler(callBack) {
-  if (theInput.value.trim() == "") {
+  if (
+    theInput.value.trim() == "" ||
+    specialCharactersRegex.test(theInput.value)
+  ) {
     fireSweetAlert("Enter Valid Local Storage Item", "Error", "error");
     return;
   }
@@ -89,14 +92,15 @@ async function addLocalStorageHelper(localStorageItem) {
     inputLabel: "Value",
     showCancelButton: true,
     inputValidator: (value) => {
-      if (!value) {
-        return "You need to write something!";
+      // SweetAlert Trims Value Already So No Need To Use Trim()
+      if (value == "" || specialCharactersRegex.test(value)) {
+        return "Please enter valid value";
       }
     },
   });
   if (value) {
     localStorage.setItem(localStorageItem, value);
-    Swal.fire(`You added value of ${value}`);
+    fireSweetAlert(`${value}`, "You added value:");
   }
 }
 
